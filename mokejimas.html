@@ -8,102 +8,32 @@
   <style>
     body {
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
       margin: 0;
       background: #f7f9fc;
       color: #0b1220;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
     }
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(8, 22, 48, 0.08);
-      max-width: 420px;
-      width: 94%;
-      text-align: center;
+    /* Šoninė juosta */
+    .sidebar {
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      width: 140px;
+      padding: 20px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+      position: relative;
     }
-    h1 {
-      font-size: 18px;
-      margin: 0 0 8px;
-    }
-    p {
-      margin: 6px 0;
-      color: #334155;
-    }
-    .iban {
-      font-family: monospace;
-      padding: 8px;
-      background: #f1f5f9;
-      border-radius: 6px;
-      margin: 8px 0;
-      word-break: break-all;
-      user-select: all;
-    }
-    button {
-      display: inline-block;
-      padding: 10px 14px;
-      border-radius: 8px;
-      border: 0;
-      background: #0ea5a4;
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-      margin-top: 12px;
-    }
-    .note {
-      font-size: 13px;
-      color: #64748b;
-      margin-top: 10px;
-    }
-    a.paysera-link {
-      display: inline-block;
-      margin-top: 12px;
-      text-decoration: none;
-      color: #0369a1;
-      font-weight: 600;
-    }
-  </style>
-</head>
-<body>
-  <div class="card">
-    <h1>Mokėjimas: SPB bankas</h1>
-    <div class="iban" id="iban">LT91 3500 0100 1868 0595</div>
-    <p>Paskirtis: Už prekę</p>
-    
-    <button id="copyIban">Kopijuoti IBAN</button>
-
-    <!-- Jei turėsi Paysera mokėjimo nuorodą, įkelk ją čia -->
-    <a href="#" id="payseraLink" class="paysera-link" style="display:none;" target="_blank" rel="noopener noreferrer">Atidaryti Paysera mokėjimą</a>
-
-    <p class="note">
-      Jei negali atidaryti banko aplikacijos tiesiogiai, paspausk „Kopijuoti IBAN“ ir įklijuok į savo banko programėlę.
-    </p>
-  </div>
-
-  <script>
-    const IBAN = "LT91 3500 0100 1868 0595";
-    const payseraUrl = ""; // jei turėsi, įkelk mokėjimo nuorodą čia, pvz. "https://www.paysera.com/pay?m=12345"
-
-    const copyButton = document.getElementById('copyIban');
-    const payseraLink = document.getElementById('payseraLink');
-
-    copyButton.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText(IBAN);
-        alert('IBAN nukopijuotas: ' + IBAN + '\nDabar atidaryk savo banko programėlę ir įklijuok.');
-      } catch {
-        // Fallback, jei clipboard API neveikia
-        prompt('Kopijuok IBAN ranka:', IBAN);
-      }
-    });
-
-    if (payseraUrl.trim() !== "") {
-      payseraLink.href = payseraUrl;
-      payseraLink.style.display = 'inline-block';
-    }
-  </script>
-</body>
-</html>
+    /* Saldainių formos apskritimai */
+    .candy {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      box-shadow: inset -5px -5px 10px rgba(255,255,255,0.7),
+                  inset 5px 5px 10px rgba(0,0,0,0.15);
+      cursor: default;
+      transition: transform 0.3s
