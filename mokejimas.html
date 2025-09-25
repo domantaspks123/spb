@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="lt">
 <head>
-  <meta charset="utf-8"/>
+  <meta charset="utf-8" />
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Mokëjimas – SPB bankas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MokÄ—jimas â€“ SPB bankas</title>
   <style>
     body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -69,23 +69,23 @@
 </head>
 <body>
   <div class="card">
-    <h1>Mokëti: SPB bankas</h1>
+    <h1>MokÄ—jimas: SPB bankas</h1>
     <div class="iban" id="iban">LT91 3500 0100 1868 0595</div>
-    <p>Paskirtis: Uþ prekæ</p>
+    <p>Paskirtis: UÅ¾ prekÄ™</p>
     
     <button id="copyIban">Kopijuoti IBAN</button>
 
-    <!-- Jei turësi Paysera mokëjimo nuorodà, ákelk jà èia -->
-    <a href="#" id="payseraLink" class="paysera-link" style="display:none;" target="_blank" rel="noopener noreferrer">Atidaryti Paysera mokëjimà</a>
+    <!-- Jei turÄ—si Paysera mokÄ—jimo nuorodÄ…, Ä¯kelk jÄ… Äia -->
+    <a href="#" id="payseraLink" class="paysera-link" style="display:none;" target="_blank" rel="noopener noreferrer">Atidaryti Paysera mokÄ—jimÄ…</a>
 
     <p class="note">
-      Jei negali atidaryti banko aplikacijos tiesiogiai, paspausk „Kopijuoti IBAN“ ir áklijuok á savo banko programëlæ.
+      Jei negali atidaryti banko aplikacijos tiesiogiai, paspausk â€žKopijuoti IBANâ€œ ir Ä¯klijuok Ä¯ savo banko programÄ—lÄ™.
     </p>
   </div>
 
   <script>
     const IBAN = "LT91 3500 0100 1868 0595";
-    const payseraUrl = ""; // jei turësi, ákelk mokëjimo nuorodà èia, pvz. "https://www.paysera.com/pay?m=12345"
+    const payseraUrl = ""; // jei turÄ—si, Ä¯kelk mokÄ—jimo nuorodÄ… Äia, pvz. "https://www.paysera.com/pay?m=12345"
 
     const copyButton = document.getElementById('copyIban');
     const payseraLink = document.getElementById('payseraLink');
@@ -93,7 +93,7 @@
     copyButton.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(IBAN);
-        alert('IBAN nukopijuotas: ' + IBAN + '\nDabar atidaryk savo banko programëlæ ir áklijuok.');
+        alert('IBAN nukopijuotas: ' + IBAN + '\nDabar atidaryk savo banko programÄ—lÄ™ ir Ä¯klijuok.');
       } catch {
         // Fallback, jei clipboard API neveikia
         prompt('Kopijuok IBAN ranka:', IBAN);
